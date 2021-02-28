@@ -17,7 +17,6 @@ const Phonebook = () => {
 
   const handleButtonClick = (event) => {
     event.preventDefault();
-    // console.log(items);
 
     isAlreadyContact()
       ? alert(`${items.name} is already in contacts.`)
