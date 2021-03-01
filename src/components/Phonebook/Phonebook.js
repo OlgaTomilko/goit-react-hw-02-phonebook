@@ -73,7 +73,7 @@ const Phonebook = () => {
       <ContactList
         filter={items.filter}
         contacts={items.contacts}
-        onFilter={filterContactsList}
+        onFilterContacts={filterContactsList}
         onDelete={handleButtonDelete}
       />
     </div>

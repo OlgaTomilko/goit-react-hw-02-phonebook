@@ -1,25 +1,26 @@
-const ContactList = ({ filter, contacts, onFilter, onDelete }) => {
+import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
+
+const ContactList = ({ filter, contacts, onFilterContacts, onDelete }) => {
   return (
     <ul>
-      {filter
-        ? onFilter().map(({ id, name, number }) => (
-            <li key={id}>
-              {name}: {number}
-              <button type="button" id={id} onClick={onDelete}>
-                Delete
-              </button>
-            </li>
-          ))
-        : contacts.map(({ id, name, number }) => (
-            <li key={id}>
-              {name}: {number}
-              <button type="button" id={id} onClick={onDelete}>
-                Delete
-              </button>
-            </li>
-          ))}
+      {(filter ? onFilterContacts() : contacts).map(({ id, name, number }) => (
+        <li key={id}>
+          {name}: {number}
+          <Button color="secondary" type="button" id={id} onClick={onDelete}>
+            Delete
+          </Button>
+        </li>
+      ))}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  filter: PropTypes.string,
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  onFilterContacts: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactList;

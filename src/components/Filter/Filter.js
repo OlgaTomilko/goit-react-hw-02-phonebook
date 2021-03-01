@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Filter = ({ onInputFind }) => {
   return (
     <div>
@@ -5,6 +7,10 @@ const Filter = ({ onInputFind }) => {
       <input type="text" onChange={onInputFind} id="find"></input>
     </div>
   );
+};
+
+Filter.propTypes = {
+  onInputFind: PropTypes.func.isRequired,
 };
 
 export default Filter;

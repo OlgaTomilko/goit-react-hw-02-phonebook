@@ -3,7 +3,7 @@ import Phonebook from "./components/Phonebook/Phonebook";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Phonebook />
     </div>
   );
